@@ -1,0 +1,22 @@
+--- grub2.spec.orig	2015-03-09 10:05:10.000000000 -0500
++++ grub2.spec	2015-03-09 10:06:17.139593581 -0500
+@@ -51,8 +51,6 @@ URL:            http://www.gnu.org/softw
+ Obsoletes:	grub < 1:0.98
+ Source0:        ftp://alpha.gnu.org/gnu/grub/grub-%{tarversion}.tar.xz
+ #Source0:	ftp://ftp.gnu.org/gnu/grub/grub-%{tarversion}.tar.xz
+-Source1:	securebootca.cer
+-Source2:	secureboot.cer
+ Source4:	http://unifoundry.com/unifont-5.1.20080820.pcf.gz
+ Source5:	theme.tar.bz2
+ Source6:	gitignore
+@@ -359,8 +357,8 @@ GRUB_MODULES="${GRUB_MODULES} linuxefi m
+ mv %{grubefiname}.orig %{grubefiname}
+ mv %{grubeficdname}.orig %{grubeficdname}
+ %else
+-%pesign -s -i %{grubefiname}.orig -o %{grubefiname} -a %{SOURCE1} -c %{SOURCE2} -n redhatsecureboot301
+-%pesign -s -i %{grubeficdname}.orig -o %{grubeficdname} -a %{SOURCE1} -c %{SOURCE2} -n redhatsecureboot301
++%pesign -s -i %{grubefiname}.orig -o %{grubefiname} -a %{SOURCE1} -c %{SOURCE1} -n redhatsecureboot301
++%pesign -s -i %{grubeficdname}.orig -o %{grubeficdname} -a %{SOURCE1} -c %{SOURCE1} -n redhatsecureboot301
+ %endif
+ cd ..
+ %endif
