@@ -42,7 +42,7 @@
 Name:           grub2
 Epoch:          1
 Version:        2.02
-Release:        0.33%{?dist}
+Release:        0.34%{?dist}
 Summary:        Bootloader with support for Linux, Multiboot and more
 
 Group:          System Environment/Base
@@ -702,13 +702,17 @@ fi
 %exclude %{_datarootdir}/grub/themes/starfield
 
 %changelog
-* Thu Dec 17 2015 Scientific Linux Auto Patch Process <SCIENTIFIC-LINUX-DEVEL@LISTSERV.FNAL.GOV>
+* Wed Jan 06 2016 Scientific Linux Auto Patch Process <SCIENTIFIC-LINUX-DEVEL@LISTSERV.FNAL.GOV>
 - Added Source: grub2-spec_use_our_keys.patch
 -->  Change the rpm to use the SL keys
 - Added Source: fnal-sl.cer
 -->  The FNAL SL signing certificate
 - Added Source: grub2.ini
 -->  Config file for automated patch script
+
+* Tue Dec 15 2015 Peter Jones <pjones@redhat.com> - 2.02-0.34
+- Rebuild with the right credentials.
+  Related: rhbz#1290089
 
 * Thu Dec 10 2015 Peter Jones <pjones@redhat.com> - 2.02-0.33
 - Don't remove 01_users, it's the wrong thing to do.
